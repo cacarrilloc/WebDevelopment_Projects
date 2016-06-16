@@ -1,0 +1,235 @@
+ <!--************************************************************
+ ** Author: Carlos Carrillo                                     *
+ ** Date:   04/05/2016                                          *
+ ** Description: This is the HTML code for a simple web page.   *
+ *  The website contains a 6x6 table, a dl list with 4 entries, *
+ *  2 nested divs, and two forms: one submit via a post, the    *
+ *  other via get (they have identical content).                *
+ *************************************************************-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset-"UTF-8">
+        <title>title</title>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+        
+    <body>
+        
+        <!-- 6x6 table with the upper left cell empty. (The others are not empty).
+         - The table has a caption detailing its contents.
+         - The table has a header section, all the cells in this section have bold text.
+         - The first column of the table has header cells that have non- bold italic.
+         - The table has a footer section made up of two cells: one is 2 columns wide,
+           the other is 4 columns wide. -->
+        
+        <table>
+            <h2> 1) TABLE </h2>
+            <caption>Who wins? Cell content indicates the status of the row entry.</caption>
+            
+            <thead>
+                <tr>
+                    <th class="whiteColor"> </th>
+                    <th class="whiteColor"> Hulk </th>
+                    <th class="whiteColor"> Batman </th>
+                    <th class="whiteColor"> Superman </th>
+                    <th class="whiteColor"> Wonderwoman </th>
+                    <th class="whiteColor"> Spiderman </th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                <tr>
+                    <th class="italica"> <span class='notbold'> Hulk </span> </th>
+                    <td> N/A </td>
+                    <td> Victory </td>
+                    <td> Total Loss </td>
+                    <td> Tie </td>
+                    <td> Knockout </td>
+                </tr>
+                
+                <tr>
+                    <th class="italica"> <span class='notbold'> Batman </span> </th>
+                    <td> Knockout </td>
+                    <td> N/A </td>
+                    <td> Loss </td>
+                    <td> Win </td>
+                    <td> Minor win</td>
+                </tr>
+                
+                <tr>
+                    <th class="italica"> <span class='notbold'>  Superman </span> </th>
+                    <td> Tie </td>
+                    <td> Minor Loss </td>
+                    <td> N/A </td>
+                    <td> Knockout </td>
+                    <td> Total Win </td>
+                </tr>
+                
+                <tr>
+                    <th class="italica"> <span class='notbold'>  Wonderwoman </span> </th>
+                    <td> Win </td>
+                    <td> Total Victory </td>
+                    <td> Tie </td>
+                    <td> N/A </td>
+                    <td> Minor Loss </td>
+                </tr>
+                
+                <tr>
+                    <th class="italica"> <span class='notbold'> Spiderman </span> </th>
+                    <td> Total Loss </td>
+                    <td> Tie </td>
+                    <td> Minor Victory </td>
+                    <td> Total Loss </td>
+                    <td> N/A </td>
+                </tr>
+                
+                <tr>
+                    <td colspan="2" class="whiteColor"> Footer 1 </td>
+                    <td colspan="4" class="whiteColor"> Footer 2 </td>
+                </tr>
+                
+             </tbody>
+            
+        </table>
+        
+        <!-- dl list with 4 entries. Code structure borrowed from https://developer.mozilla.org -->
+        
+        <h2> 2) DESCRIPTION LIST </h2>
+        <dl>
+            <dt><b> Best Car </b></dt>
+            <dd>Mercedes-Benz</dd>
+            <dt><b> Best Motorcycle </b></dt>
+            <dd>Ducati</dd>
+            <dt><b> Best Food </b></dt>
+            <dd>Colombian</dd>
+            <dt><b> Best Color </b></dt>
+            <dd>Green</dd>
+        </dl>
+        
+        <!-- This div is aligned to the left side of the page and takes up 3/4 of the page width. It has a space of 20px between it and the previous element. It also has a class of 'outer-content'. Its background is pink. Inside the main div, there is another div called 'inner-content' with blue background. It takes up 3/4 of the parent div's width and it is centered. -->
+        
+        <h2> 3) NESTED DIVs </h2>
+        
+        <div class="outer-content">
+            
+            <div id="inner-content"> <span> Stay thirsty my friend!! </span> </div>
+            
+        </div> <br>
+        
+        <!-- Form submit via a get. There are 4 input types:
+                - A text input with a name attribute of 'text_input'
+                - A number input with a name attribute of 'numerical_input'
+                - A password input with a name attribute of 'password_input'.
+                - A set of 3 radio inputs named 'candy' in this order:
+                    - Snickers
+                    - Skittles
+                    - Mentos -->
+        <h2> 4) GET FORM </h2>
+        <form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="get">
+            
+            <fieldset>
+                <legend>Some GET Data</legend>
+                
+                <fieldset>
+                    <label>Enter text here:
+                        <input type="text" name="text_input" size="30" maxlength="100">
+                    </label>
+                </fieldset> <br>
+                
+                <fieldset>
+                    <label>Enter numbers here:
+                        <input type="number" name="numerical_input" min="0" max="1000">
+                    </label>
+                </fieldset> <br>
+                
+                <fieldset>
+                    <label>Enter your password here:
+                        <input type="password" name="password_input">
+                    </label>
+                </fieldset> <br>
+            
+                <fieldset>
+                    <p> Choose your favorite candy: </p>
+                    
+                    <label>
+                        <input type="radio" name="candy" value="Snickers"/> Snickers
+                    </label> <br><br>
+                    
+                    <label>
+                        <input type="radio" name="candy" value="Skittles"/> Skittles
+                    </label> <br><br>
+                    
+                    <label>
+                        <input type="radio" name="candy" value="Mentos"/> Mentos
+                    </label> <br><br>
+                    
+                    <input type="submit" value="Submit"/>
+                   
+                </fieldset> <br>
+                 
+            </fieldset>
+            
+        </form> <br>
+        
+        <!-- Form submit via a post. There are 4 input types:
+                - A text input with a name attribute of 'text_input'.
+                - A number input with a name attribute of 'numerical_input'.
+                - A password input with a name attribute of 'password_input'.
+                - A set of 3 radio inputs named 'candy' in this order:
+                    - Snickers
+                    - Skittles
+                    - Mentos -->
+        
+        <h2> 5) POST FORM </h2>
+        <form action="http://classes.engr.oregonstate.edu/eecs/winter2015/cs290-400/tools/class-content/form_tests/check_request.php" method="post">
+            
+            <fieldset>
+                <legend>Some POST Data</legend>
+                
+                <fieldset>
+                    <label>Enter text here:
+                        <input type="text" name="text_input" size="30" maxlength="100">
+                    </label>
+                </fieldset> <br>
+                
+                <fieldset>
+                    <label>Enter numbers here:
+                        <input type="number" name="numerical_input" min="0" max="1000">
+                    </label>
+                </fieldset> <br>
+                
+                <fieldset>
+                    <label>Enter your password here:
+                        <input type="password" name="password_input">
+                    </label>
+                </fieldset> <br>
+                
+                <fieldset>
+                    <p> Choose your favorite candy: </p>
+                    
+                    <label>
+                        <input type="radio" name="candy" value="Snickers"/> Snickers
+                    </label> <br><br>
+                    
+                    <label>
+                        <input type="radio" name="candy" value="Skittles"/> Skittles
+                    </label> <br><br>
+                    
+                    <label>
+                        <input type="radio" name="candy" value="Mentos"/> Mentos
+                    </label> <br><br>
+                    
+                    <input type="submit" value="Submit"/>
+                    
+                </fieldset> <br>
+                
+            </fieldset>
+            
+        </form> <br>
+        
+    </body>
+    
+</html>
+

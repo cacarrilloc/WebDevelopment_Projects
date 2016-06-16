@@ -1,0 +1,257 @@
+<!-- page1.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SASS How-To Guide</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style>
+li {
+    margin-bottom: 10px;
+}
+</style>
+</head>
+<body>
+  
+<div class="container">
+  <div class="jumbotron">
+      <h2>How-To Guide:</h2>
+      <h1>Using the SASS CSS Extension</h1>
+      <h2><small>by Carlos Carrillo-Calderon</small></h2>
+  </div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Introduction</a></li>
+        <li class="active"><a href="page1.html">Getting Started</a></li>
+        <li><a href="page2.html">Create Buttons</a></li>
+        <li><a href="page3.html">Create Animations</a></li>
+        <li><a href="page4.html">More Resources</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div> 
+
+	<div class="row">
+	<div class='col-md-8 col-md-offset-2'>
+      <h2>How to install SASS</h2>
+      <p>Although there are many applications that will get you up and running with SASS in a few minutes for Mac, Windows, and Linux (such as <a href="http://incident57.com/codekit/" target="_blank">CodeKit</a>, <a href="http://compass.kkbox.com/" target="_blank">Compass.app</a>, <a href="http://mhs.github.io/scout-app/" target="_blank">Scout</a>, <a href="http://koala-app.com/" target="_blank">Koala</a>, among others), this guide will focus on command-line installation only. So here are the line commands you will need depending on your machine:</p>
+      <ul>
+          <li><i><b>LINUX</b></i>: If you're using a distribution of Linux, you'll need to <a href="http://rubyinstaller.org/" target="_blank">install Ruby</a> first. You can also install <a href="https://www.ruby-lang.org/en/about/" target="_blank">Ruby</a> through the apt package manager: <code>rbenv</code> or <code>rvm</code>. Once Ruby is installed on your PC, you will have to type the next command line: <br> <p></li><code>sudo su -c "gem install sass"</code></p>
+          
+          <li><i><b>WINDOWS</b></i>: You will also need to install Ruby before you start using SASS . The fastest way to get Ruby on your Windows computer is to use the <a href="http://rubyinstaller.org/" target="_blank">Ruby Installer</a>. It's a single-click installer that will get everything set up for you super fast. The installer will also install a Ruby command line powershell application that will let you use the Ruby libraries.</li><br>
+          
+          <li><i><b>MAC</b></i>: If you are a Mac user, congratulations!! As mentioned above, SASS needs a Ruby dependency and Ruby comes pre-installed in your Mac. So the only thing you need to do is typing the next command line on your console:<br> <code>gem install sass</code><br>If you get an <b>error message</b> then it's likely you will need to use the sudocommand to install the Sass gem:<br><code>sudo gem install sass </code><br>Then, double-check if you have SASS installed:<br><code>sass –v</code><br>It should return Sass 3.4.22 (Selective Steve). Congratulations! You've successfully installed Sass. If so, you are all set and ready to enjoy SASS!</li>
+      </ul>
+      
+      <p>Now that you have installed SASS on your machine, it’s time to start learning how to really use it for your webDev projects. Once you start tinkering with SASS, it will take your preprocessed Sass file and save it as a normal CSS file that can be used in any web site.</p>
+      
+      <p>The most direct way to make this happen is in your terminal. Once SASS is installed, you can run <code>sass input.scss output.css</code> from your terminal. You can also watch either individual files or entire directories. In addition, you can watch folders or directories with the <code>--watch flag</code>. For instance, you can type this command line if you want to run SASS while watching an entire directory:<code>sass --watch app/sass:public/stylesheets</code><br>
+      
+      <p>Knowing this, the next thing to do is getting familiar with the basic concepts you need to understand in order to start using this wonderful CSS tool. So here are the main SASS concepts to start!</p>
+      
+      <h2>Variables</h2>
+      <p>Think of variables as a way to store information that you want to reuse throughout your stylesheet. You can store things like colors, font stacks, or any CSS value you think you'll want to reuse. Sass uses the <code>$</code> symbol to make something a variable. Here's an example:</p>
+      <pre><code>
+          $font-stack:    Helvetica, sans-serif
+          $primary-color: #333
+          
+          body
+            font: 100% $font-stack
+            color: $primary-color
+      </code></pre>
+      
+      <p>When the Sass is processed, it takes the variables we define for the <code>$font-stack</code> and <code>$primary-color</code> and outputs normal CSS with our variable values placed in the CSS. This can be extremely powerful when working with brand colors and keeping them consistent throughout the site. So this would be the CSS version:</p>
+      <pre><code>
+          body 
+            font: 100% Helvetica, sans-serif
+            color: #333
+      </code></pre>
+    
+      <h2>Nesting</h2>
+      <p>Even thought HTML has a clear nested and visual hierarchy, CSS doesn't have a it at all. In order to solve this visual issue, SASS will let you nest your CSS selectors in a way that follows the same visual hierarchy of your HTML. Be aware that overly nested rules will result in over-qualified CSS that could prove hard to maintain and is generally considered bad practice. With that in mind, here's an example of some typical styles for a site's navigation:</p>
+      <pre><code>
+          nav
+            ul
+                margin: 0
+                padding: 0
+                list-style: none
+          
+            li
+                display: inline-block
+          
+            a
+                display: block
+                padding: 6px 12px
+                text-decoration: none
+      </code></pre>
+      
+      <p>As you can see, the <code>ul</code>, <code>li</code>, and <code>a</code> selectors are nested inside the <code>nav</code> selector. This is a great way to organize your CSS and make it more readable. Thus, the CSS will look like this:</p>
+      <pre><code>
+          nav ul
+            margin: 0
+            padding: 0
+            list-style: none
+          
+          nav li
+            display: inline-block
+          
+          nav a
+            display: block
+            padding: 6px 12px
+            text-decoration: none
+      </code></pre>
+      
+      
+      <h2>Partials</h2>
+      <p>You can create partial Sass files that contain little snippets of CSS that you can include in other Sass files. This is a great way to modularize your CSS and help keep things easier to maintain. A partial is simply a Sass file named with a leading underscore. You might name it something like <code>_partial.scss</code>. The underscore lets Sass know that the file is only a partial file and that it should not be generated into a CSS file. Sass partials are used with the <code>@import</code> directive.</p>
+      
+      <h2>Import</h2>
+      <p>CSS has an import option that lets you split your CSS into smaller, more maintainable portions. The only drawback is that each time you use <code>@import</code> in CSS it creates another HTTP request. Sass builds on top of the current CSS <code>@import</code> but instead of requiring an HTTP request, Sass will take the file that you want to import and combine it with the file you're importing into so you can serve a single CSS file to the web browser. Let's say we have the files, <code>_reset.scss</code> and <code>base.scss</code>, and we want to import <code>_reset.scss</code> into <code> base.scss</code>.</p>
+      
+      <p><b>Subordinate file:</b> File to be embedded into a base file.</p>
+      <pre><code>
+          // This is "_reset.sass" file
+          
+          html,
+          body,
+          ul,
+          ol
+            margin:  0
+            padding: 0
+
+      </code></pre>
+      <p><b>Base file:</b> File that embraces or uses a “subordinated” file.</p>
+      <pre><code>
+          // This is "base.sass" file
+          
+          @import reset
+          
+          body
+            font: 100% Helvetica, sans-serif
+            background-color: #efefef
+          
+      </code></pre>
+      
+      <p>Notice we're using <code>@import 'reset';</code> in the <code>base.scss</code> file. When a file is imported, the extension <code>.scss</code> doesn't need to be included. SASS is smart enough to figure it out for you. So this will be the CSS code generated:</p>
+      
+      <pre><code>
+          html, body, ul, ol
+            margin: 0
+            padding: 0
+          
+          body
+            font: 100% Helvetica, sans-serif
+            background-color: #efefef
+      </code></pre>
+      
+      <h2>Mixins</h2>
+      <p>Some things in CSS are a bit tedious to write, especially with CSS3 and the many vendor prefixes that exist. A mix-in lets you make groups of CSS declarations that you want to reuse throughout your site. You can even pass in values to make your mix-in more flexible. A good use of a mix-in is for vendor prefixes. Here's an example for <code>border-radius</code>.</p>
+      <pre><code>
+          =border-radius($radius)
+            -webkit-border-radius: $radius
+            -moz-border-radius:    $radius
+            -ms-border-radius:     $radius
+            border-radius:         $radius
+          
+          .box
+            +border-radius(10px)
+      </code></pre>
+      <p>To create a mix-in you can use the <code>@mixin</code> directive and give it a name. For instance this mix-in is named <code>border-radius</code>. The variable <code>$radius</code> is also used inside the parentheses so a radius of whatever we can be passed in. After the mix-in is created, you can then use it as a CSS declaration starting with <code>@include</code> followed by the name of the mix-in. So the CSS generated will look like this:</p>
+      <pre><code>
+          .box
+            -webkit-border-radius: 10px
+            -moz-border-radius: 10px
+            -ms-border-radius: 10px
+            border-radius: 10px
+      </code></pre>
+      
+      <h2>Extend/Inheritance</h2>
+      <p>This is one of the most useful features of SASS. Using <code>@extend</code> lets you share a set of CSS properties from one selector to another. It helps keep your SASS very DRY. In this example, a simple series of messaging for errors, warnings and successes will be created.</p>
+      <pre><code>
+          .message
+            border: 1px solid #ccc
+            padding: 10px
+            color: #333
+          
+          .success
+            @extend .message
+            border-color: green
+          
+          .error
+            @extend .message
+            border-color: red
+          
+          .warning
+            @extend .message
+            border-color: yellow
+      </code></pre>
+      <p>The above code allows to take the CSS properties in <code>.message</code> and apply them to <code>.success</code>, <code>.error</code>, and <code>.warning</code>. The magic happens the CSS is generated. This helps programmers avoid having to write multiple class names on HTML elements. So the CSS generated will look like this:</p>
+      <pre><code>
+          .message, .success, .error, .warning
+            border: 1px solid #cccccc
+            padding: 10px
+            color: #333
+          
+          .success
+            border-color: green
+          
+          .error
+            border-color: red
+          
+          .warning
+            border-color: yellow
+      </code></pre>
+      <h2>Operators</h2>
+      <p>Doing math in your CSS is very helpful. SASS has a handful of standard math operators like <code>+</code>, <code>-</code>, <code>*</code>, <code>/</code>, and <code>%</code>. For instance, this is the SASS code to do some simple math to calculate widths for an <code>aside</code> and <code>article</code> HTML elements:</p>
+      <pre><code>
+          .container
+            width: 100%
+          
+          article[role="main"]
+            float: left
+            width: 600px / 960px * 100%
+          
+          aside[role="complementary"]
+            float: right
+            width: 300px / 960px * 100%
+      </code></pre>
+      <p>Thus, a very simple fluid grid based on 960px was created. As you can see, operations in SASS allow to do something like take pixel values and convert them to percentages without much hassle. On the other hand, the generated CSS will look like:</p>
+      <pre><code>
+          .container
+            width: 100%
+          
+          article[role="main"]
+            float: left
+            width: 62.5%
+          
+          aside[role="complementary"]
+            float: right
+            width: 31.25%
+      </code></pre>
+      <p>Thus, a very simple fluid grid based on 960px was created. As you can see, operations in SASS allow to do something like take pixel values and convert them to percentages without much hassle. On the other hand, the generated CSS will look like:</p>
+      
+      <p>Now that you may have a decent grasp about the main SASS features, it’s time to practice! Click next to see some SASS applications so you can start applying SASS to your own websites. Enjoy it!</p>
+      <style>
+          pre{
+              width: 80%;
+          }
+      </style>
+    </div>
+    </div>
+    
+	<div class="container">                  
+  		<ul class="pager">
+    		<li class="previous"><a href="index.html">Previous</a></li>
+    		<li class="next"><a href="page2.html">Next</a></li>
+  		</ul>
+	</div>
+</body>
+</html>

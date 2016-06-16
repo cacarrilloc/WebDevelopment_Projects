@@ -1,0 +1,65 @@
+{{!-- Author: Carlos Carrillo --}}
+{{!-- Date:   05/13/2016 --}}
+{{!-- Description: This is the handlebars file for a simple web --}}
+{{!-- page. The site displays 2 tables. --}}
+
+
+<h1> You sent the following data in a {{typeRequest}} request: </h1>
+
+{{#if noString}}
+
+<h2 style="color:red;"> ATTENTION: NO URL QUERY STRINGS HAVE BEEN SENT! </h2>
+
+{{/if}}
+
+{{#if getTrigger}}
+    <table>
+        <caption style="color:darkblue;"> These are all the keys and values sent in the URL query string: </caption>
+
+        <thead>
+            <tr>
+                <th> KEY </th>
+                <th> VALUE </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each queryParams}}
+            <tr>
+                <td class="cellColor"> {{this.name}} </td>
+                <td class="cellColor"> {{this.value}} </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{/if}}
+
+<br>
+
+{{#if postTrigger}}
+    <table>
+        <caption style="color:darkblue;"> These are all the keys and values received in the request BODY (only on POST): </caption>
+
+        <thead>
+            <tr>
+                <th> KEY </th>
+                <th> VALUE </th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {{#each bodyParams}}
+            <tr>
+                <td class="cellColor"> {{this.name}} </td>
+                <td class="cellColor"> {{this.value}} </td>
+            </tr>
+            {{/each}}
+        </tbody>
+    </table>
+{{/if}}
+
+
+
+
+
+

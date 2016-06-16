@@ -1,0 +1,78 @@
+/**************************************************************
+** Author: Carlos Carrillo                                    *
+** Date:   04/05/2016                                         *
+** Description: This is the CSS code for a simple web page.   *
+*  The website contains a 6x6 table, a dl list with 4 entries,*
+*  2 nested divs, and two forms: one submit via a post, the   *
+*  other via get (they have identical content).               *
+**************************************************************/
+
+/* Type selectors to set up style in the table */
+th{
+    border-style: solid;
+}
+
+td{
+    border-style: solid;
+}
+
+/* Class selectors to set up style in the table for EXTRA CREDIT */
+.notbold{
+    font-weight: normal; /* Avoid boldface in headers from 1st column */
+}
+
+.italica{
+    font-style: italic; /* Set text in italics in headers from 1st column */
+}
+
+.whiteColor{
+    background: white; /* Cancel colors in headers from 1st row */
+}
+
+/* pseudo-class selectors to make the non-header rows alternate colors */
+tr:nth-of-type(2n+1) {
+    background: green;
+    text-align: center;
+}
+
+tr:nth-of-type(2n) {
+    background: #ff0055;
+    text-align: center;
+}
+
+/* Class and id selectors for nested divs */
+.outer-content{ /* outer div */
+    background-color:pink;
+    /* Set outer div dimensions */
+    width: 75%;
+    height:75px;
+    /* Set positioning */
+    position: relative;
+    top: 20px;
+    left: 0px;
+}
+
+#inner-content{ /* inner div */
+    background-color: lightblue;
+    /* center text within inner div */
+    text-align: center;
+    vertical-align: middle;
+    line-height: 25px;
+    /* Set div dimensions according to outer div */
+    width: 75%;
+    height: 25px;
+    /* Set type of positioning */
+    position: relative;
+    /* Center inner div within outer div */
+    top: 25px;
+    margin: 0 auto;
+}
+
+/* Type selector to change style in the forms */
+fieldset{
+    border-style: solid;
+    border-color: black;
+    position: relative;
+    top: 8px;
+}
+

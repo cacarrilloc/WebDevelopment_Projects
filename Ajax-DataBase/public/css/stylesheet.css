@@ -1,0 +1,70 @@
+/**************************************************************
+** Author: Carlos Carrillo                                    *
+** Date:   05/27/2016                                         *
+** Description: This is the CSS code for a simple form for a  *
+*  database backed website that features Ajax interaction.    *
+**************************************************************/
+
+/* Type selectors to set up style in the div */
+body {
+    background: grey;
+}
+
+#resetT {
+    margin: 0 auto;
+    border: 2px solid black;
+    background: red;
+    font-style: italic;
+    text-align: center;
+    font-size: 150%;
+    border-radius: "10px";
+}
+
+h1, h2 {
+    text-align: center;
+    color: darkred;
+    margin: 0 auto;
+}
+
+
+/* Type selectors to set up style in the form */
+#workoutInput {
+    border: 1px solid black;
+    background: lightgray;
+    font-size: 150%;
+    width: 75%;
+    margin: 0 auto;
+}
+
+#workoutUpdate {
+    border: 1px solid black;
+    background: lightgray;
+    font-size: 150%;
+    width: 75%;
+    margin: 0 auto;
+}
+
+
+/* Type selectors to set up style in the table */
+#mainTable th {
+    border: 2px solid black;
+    background: lightblue;
+    font-style: italic;
+    text-align: center;
+    font-size: 200%;
+}
+
+#mainTable td{
+    border: 1px solid black;
+    background: lightgray;
+    text-align: center;
+    font-size: 150%;
+}
+
+#mainTable {
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+
+

@@ -1,0 +1,172 @@
+<!-- page2.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>SASS How-To Guide</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="css/css-style.css">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+<style>
+li {
+    margin-bottom: 10px;
+}
+
+</style>
+</head>
+<body>
+  
+<div class="container">
+  <div class="jumbotron">
+      <h2>How-To Guide:</h2>
+      <h1>Using the SASS CSS Extension</h1>
+      <h2><small>by Carlos Carrillo-Calderon</small></h2>
+  </div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Introduction</a></li>
+        <li><a href="page1.html">Getting Started</a></li>
+        <li class="active"><a href="page2.html">Create Buttons</a></li>
+        <li><a href="page3.html">Create Animations</a></li>
+        <li><a href="page4.html">More Resources</a></li>
+
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div> 
+
+	<div class="row">
+	<div class='col-md-8 col-md-offset-2'>
+        <h2>Buttons Demonstration: Using SASS Part 1</h2>
+      <p>Next, this guide will show you how to create some kinds of buttons using the SASS preprocessor. To start things off, your file structure should look like something like this:</p>
+      <pre><code>
+          project/
+            index.html
+                css/style.css
+                    scss/style1.scss
+                    scss/style2.scss
+      </code></pre>
+      
+      <p>As seen above, many “style.scss” files can compile into “style.css”, which is the only file that needs to be linked to your HTML. So let’s create some buttons using a fairly complex structure built upon SASS preprocessor language. In order to do this, let's use some of the features you already learned in the <a href="page1.html" target="_blank">previous page</a> of this guide:</p>
+      <p><b>Import File: </b></p>
+      <pre><code>
+          @import "compass/scss"
+          
+          body
+            background-color: #DADADA
+      </code></pre>
+      <p><b>Color Themes (Variables): </b></p>
+      <pre><code>
+          $purple: #9A68C7
+          $blue: #3BA9E4
+          $green: #75B343
+          $orange: #FF6A42
+      </code></pre>
+      <p><b> Common Colors (Variables): </b></p>
+       <pre><code>
+          $off-wht: rgba(white,.4)
+      </code></pre>
+       <p><b>Mixins: </b></p>
+      <pre><code>
+          @mixin btn-theme($btn-color)
+            border-color: darken($btn-color, 20%)
+            background-color: $btn-color
+            
+            &:hover
+                background-color: darken
+                ($btn-color, 6%)
+                box-shadow: 0 .125em $off-wht,
+                inset 0 .063em $off-wht,
+                inset 0 -.188em lighten
+                ($btn-color, 2%)
+          
+            &:active
+                box-shadow: 0 .063em $off-wht,
+                inset 0 0 1.094em
+                darken($btn-color, 40%),
+                inset 0 .063em darken
+                ($btn-color, 20%),
+                inset 0 -0.188em darken
+                ($btn-color, 20%)
+          
+          @mixin trans($val...)
+            -webkit-transition: $val
+            -moz-transition: $val
+            -o-transition: $val
+            transition: $val        ;
+      </code></pre>
+      <p><b>Button Global: </b></p>
+      <pre><code>
+          .btn
+            display: inline-block
+            margin: 1rem
+            padding: .938em 1.875em
+            border: .094em solid
+            border-radius: .625em
+            box-shadow: 0 .375em .313em
+            -.313em rgba(black,.8),
+            inset 0 .063em $off-wht,
+            inset 0 -.188em rgba(black,.15)
+            color: #FFF
+            font: bold 1.8rem sans-serif
+            @include trans(0.2s ease-in-out)
+            text:
+                transform: uppercase
+                decoration: none
+                shadow: 0 .063em rgba(black,.3)
+            cursor:pointer
+       </code></pre>
+       <p><b>Themes: </b></p>
+       <pre><code>
+          .purple
+          @include btn-theme($purple)
+          
+          .blue
+          @include btn-theme($blue)
+          
+          .green
+          @include btn-theme($green)
+          
+          .orange
+          @include btn-theme($orange)             ;
+      </code></pre>
+      
+      <p><b>You can call this structure from your HTML using this code:</b></p>
+      <p><img src='images/ButtonHTML.jpg'></p>
+      
+      <div>
+          <h3>And this is how these buttons would look like in real life:</h3>
+      
+            <button class="purple btn">Button</button>
+                <a class="blue btn" href="#">Start Now!</a>
+                <a class="green btn" href="#">Order</a>
+            <input type="submit" class="orange btn">
+                
+      </div>
+      <style>
+          img {
+              width: 60%;
+              margin-left: 40px;
+          }
+          pre {
+              width: 80%;
+          }
+      </style>
+    </div>
+    </div>
+
+	<div class="container">
+  		<ul class="pager">
+    		<li class="previous"><a href="page1.html">Previous</a></li>
+    		<li class="next"><a href="page3.html">Next</a></li>
+  		</ul>
+	</div>
+</body>
+</html>

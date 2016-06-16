@@ -1,0 +1,131 @@
+/* SASS Example 1
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+h6 {
+  animation-duration: 10s;
+  animation-name: slidein;
+  animation-iteration-count: infinite;
+}
+
+@keyframes slidein {
+  from {
+    margin-left: 100%;
+    width: 300%; 
+  }
+
+  to {
+    margin-left: 0%;
+    width: 100%;
+  }
+}
+
+/* SASS Example 3
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.showbox {
+  float: left;
+  margin: 4em 1em;
+  height: 38px;
+  border: transparent;
+  border-radius: 4px;
+  color: #FFF;
+  background-color: #33C3F0;
+  line-height: 60px;
+  text-align: center;
+  text-transform: uppercase;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out; }
+  
+.showbox.slideright:hover {
+  -webkit-transform: translate(3em,0);
+  -moz-transform: translate(3em,0);
+  -o-transform: translate(3em,0);
+  -ms-transform: translate(3em,0);
+  transform: translate(3em,0); }
+  
+/* SASS Example 3
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.spinningSASS {
+  border-radius: 50%;
+  width:350px;
+  height:350px;
+  overflow:hidden;
+  margin:20px;
+  
+  -webkit-animation: spin 3s linear 0s infinite reverse;
+  -moz-animation: spin 3s linear 0s infinite reverse;  
+  -ms-animation: spin 3s linear 0s infinite reverse;
+  -o-animation: spin 3s linear 0s infinite reverse;
+  animation: spin 3s linear 0s infinite reverse;
+  
+  -webkit-animation-play-state: paused;
+  -moz-animation-play-state: paused;
+  -ms-animation-play-state: paused;
+  -o-animation-play-state: paused;  
+  animation-play-state: paused; }
+.spin {
+  width:350px;
+  height:350px;
+  border-radius: 100%;
+  background-image: url('../images/torus-attractor-line-circle.gif');
+  background-repeat:no-repeat;
+  background-position:50% 50%;
+  
+  -webkit-animation: spin 6s linear 0s infinite normal;
+  -moz-animation: spin 6s linear 0s infinite normal;
+  -ms-animation: spin 6s linear 0s infinite normal;
+  -o-animation: spin 6s linear 0s infinite normal;
+  animation: spin 6s linear 0s infinite normal; }
+  
+.spinningSASS:hover {
+  -webkit-animation-play-state: running;
+  -moz-animation-play-state: running;
+  -ms-animation-play-state: running;
+  -o-animation-play-state: running;
+  animation-play-state: running;
+}
+
+@keyframes spin {
+  0% { transform: rotate(360deg); }
+  100% { transform: rotate(0deg); } }
+  
+@-webkit-keyframes spin {
+  0% {-webkit-transform: rotate(360deg); }
+  100% { -webkit-transform: rotate(0deg); } }
+  
+@-ms-keyframes spin {
+  0% {-ms-transform: rotate(360deg); }
+  100% { -ms-transform: rotate(0deg); } }
+  
+@-moz-keyframes spin {
+  0% { -moz-transform: rotate(360deg); }
+  100% { -moz-transform: rotate(0deg); } }
+  
+@-o-keyframes spin {
+  0% { -o-transform: rotate(360deg); }
+  100% { -o-transform: rotate(0deg); } }
+
+/* Closing Thoughts
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+#spinningbox {
+  width: 200px;
+  height: 200px;
+  background-color: #BBB;
+  color: #FFF;
+  border-radius: 4px;
+  -webkit-transition: 1s ease-in-out;
+  -moz-transition: 1s ease-in-out;
+  -o-transition: 1s ease-in-out;
+  transition: 1s ease-in-out; }
+#spinningbox:hover {
+  background-color: #33C3F0;
+  -webkit-transform: rotate(360deg) scale(2);
+  -moz-transform: rotate(360deg) scale(2);
+  -o-transform: rotate(360deg) scale(2);
+  -ms-transform: rotate(360deg) scale(2);
+  transform: rotate(360deg) scale(2); }
+ #spinningbox:hover a{
+   color: #FFF;}
+ #spinningbox:hover a:hover{
+   color: #0FA0CE;}
+  

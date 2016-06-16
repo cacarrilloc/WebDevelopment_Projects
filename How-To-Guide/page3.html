@@ -1,0 +1,224 @@
+<!-- page3.html-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SASS How-To Guide</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/css-style.css">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <style>
+        li {
+            margin-bottom: 10px;
+        }
+                
+    </style>
+</head>
+<body>
+    
+    <div class="container">
+        <div class="jumbotron">
+            <h2>How-To Guide:</h2>
+            <h1>Using the SASS CSS Extension</h1>
+            <h2><small>by Carlos Carrillo-Calderon</small></h2>
+        </div>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="index.html">Introduction</a></li>
+        <li><a href="page1.html">Getting Started</a></li>
+        <li><a href="page2.html">Create Buttons</a></li>
+        <li class="active"><a href="page3.html">Create Animations</a></li>
+        <li><a href="page4.html">More Resources</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+</div> 
+
+	<div class="row">
+	<div class='col-md-8 col-md-offset-2'>
+      <h2>Animation Demonstration: Using SASS Part 2</h2>
+      <p>Now that we have seen how to do some little tricks using the SASS preprocessor, it’s time to do cooler stuff with SASS: Animations. In SASS, animations are generally done in two parts: a) writing the style to describe the animation and b) writing the set of keyframes to indicate the start and end of the animation style. Simple, right?</p>
+      <p>Also, SASS animations are very processor friendly and animations coded in SASS tend to run very well even on low end devices! Learning the SASS animation properties are simple and the number of properties to remember are relatively few:
+      <ul>
+          <li>animation-name:</li>
+          <li>animation-duration:</li>
+          <li>animation-timing-function:</li>
+          <li>animation-delay:</li>
+          <li>animation-iteration:</li>
+          <li>animation-direction:</li>
+          <li>animation-fill-mode:</li>
+          <li>animation-play-state:</li>
+      </ul>
+      <p>But even with these few properties, a number of different animations can be created! Take a look at the following code:</p>
+      <pre><code>
+          h3
+            animation-duration: 10s
+            animation-name: slidein
+            animation-iteration-count: infinite
+            color:darkcyan
+          
+          @keyframes slidein
+            from
+                margin-left: 100%
+                width: 300%;
+            to
+                margin-left: 0%
+                width: 100%
+      </code></pre>
+      <p>The code above uses uses SASS animation properties to slide some text from the right to the left of the screen. These same properties can be used to animate any element controlled via CSS, such as images, divs, buttons, etc. You can see the resulting animation of this code below!</p>
+      <h3>This text is animated with SASS!!</h3>
+      <p>Let's keep going and see some slightly more advanced applications of SASS animations. I swear you will be surprise! ;-)</p>
+      
+      <h4>The Sliding Box: </h4>
+      <p>The next code makes a div slide to the right when you hover the mouse pointer over it. </p>
+      <pre><code>
+          .showbox
+            float: left
+            margin: 4em 1em
+            height: 38px
+            border: transparent
+            border-radius: 4px
+            color: #FFF;
+            background-color: #33C3F0
+            line-height: 60px
+            text-align: center
+            text-transform: uppercase
+            -webkit-transition: 1s ease-in-out
+            -moz-transition: 1s ease-in-out
+            -o-transition: 1s ease-in-out
+            transition: 1s ease-in-out
+          
+          .showbox.slideright:hover
+            -webkit-transform: translate(3em,0)
+            -moz-transform: translate(3em,0)
+            -o-transform: translate(3em,0)
+            -ms-transform: translate(3em,0)
+            transform: translate(3em,0)
+        </pre></code>
+        <p>Here, the first elements to be set in <code>.showbox</code> are the dimension and style parameters, such as <code>border-radius</code>, <code>width</code>, <code>height</code>, <code>background-color</code>, etc. Then the <code>–webkit</code>, <code>-moz</code>, <code>-o</code>, and <code>transition</code> animation directives are used to set the desired parameters. In the case of <code>.showbox.slideright:hover</code>, only the animation directives are set. So now, go ahead and hover the mouse pointer over the box below!! </p>
+        <div class="showbox slideright">hover over me</div>
+        <div style="clear: left;"></div>
+        
+        <h4>The "hover" effect: </h4>
+        <p>This is actually a static <code>.jpg</code> image inside a <code>div</code> that is constantly spinning counter-clock wise. This is entirely animated with SASS. So now go ahead and hover over it and see what happens. It's magic!</p>
+        <div class='spinningSASS'><div class='spin'></div></div>
+        <p>Code for Spinning div containing an image:</p>
+        <pre><code>
+            .spinningSASS
+                border-radius: 50%
+                width:350px
+                height:350px
+                overflow:hidden
+                margin:20px
+            
+                -webkit-animation: spin 3s linear 0s infinite reverse
+                -moz-animation: spin 3s linear 0s infinite reverse
+                -ms-animation: spin 3s linear 0s infinite reverse
+                -o-animation: spin 3s linear 0s infinite reverse
+                animation: spin 3s linear 0s infinite reverse
+            
+                -webkit-animation-play-state: paused
+                -moz-animation-play-state: paused
+                -ms-animation-play-state: paused
+                -o-animation-play-state: paused
+                animation-play-state: paused
+            
+            .spin
+                width:350px
+                height:350px
+                border-radius: 100%
+                background-image:
+                url('../images/torus-
+                attractor-line-circle.gif')
+                background-repeat:no-repeat
+                background-position: 50%
+            
+                -webkit-animation: spin 6s linear 0s infinite normal
+                -moz-animation: spin 6s linear 0s infinite normal
+                -ms-animation: spin 6s linear 0s infinite normal
+                -o-animation: spin 6s linear 0s infinite normal
+                animation: spin 6s linear 0s infinite normal
+            
+            .spinningSASS:hover
+                -webkit-animation-play-state: running
+                -moz-animation-play-state: running
+                -ms-animation-play-state: running
+                -o-animation-play-state: running
+                animation-play-state: running
+            
+            @keyframes spin
+                0% { transform: rotate(360deg) }
+                100% { transform: rotate(0deg) }
+            @-webkit-keyframes spin
+                0% {-webkit-transform: rotate(360deg) }
+                100% { -webkit-transform: rotate(0deg) }
+            @-ms-keyframes spin
+                0% {-ms-transform: rotate(360deg) }
+                100% { -ms-transform: rotate(0deg) }
+            @-moz-keyframes spin
+                0% { -moz-transform: rotate(360deg) }
+                100% { -moz-transform: rotate(0deg) }
+            @-o-keyframes spin
+                0% { -o-transform: rotate(360deg) }
+                100% { -o-transform: rotate(0deg) }
+        </code></pre>
+        
+        <p>Again, the first elements to be set in each function are the dimensions parameters, such as <code>border-radius</code>, <code>width</code>, <code>height</code>, <code>overflow</code>. Then the <code>–webkit</code>, <code>-moz</code>, <code>-ms</code>, and <code>–o</code> animation directives are used to set up the animation parameters. Finally, the <code>@key-frames</code> are combine to created the desired animation.</p>
+        <h4>The Magic Box:</h4>
+        <p>Finally, let’s do our last animation! Although this code looks simple, it kind of summarizes all what we have learned in this guide. The same as in the previous example, the first elements to be set in each function are the dimensions parameters <code>border-radius</code>, <code>width</code>, <code>height</code>, <code>overflow</code>. Then the <code>–webkit</code>, <code>-moz</code>, <code>-ms</code>, and <code>–o</code> animation directives are used to set up the animation parameters. Finally, the <code>@key-frames</code> are combine to created the desired animation. So go ahead and hover over it, click on one of its links, and see its magic!</p>
+        
+        <div id='spinningbox'>MAGIC BOX<br>
+            <a href="index.html">Introduction</a><br>
+            <a href="page1.html">Getting Started</a><br>
+            <a href="page2.html">Create Buttons</a><br>
+            <a href="page3.html">Create Animations</a><br>
+            <a href="page4.html">More Resources</a></div><br>
+        
+        <p>And here is the code that makes the magic box does its magic. This time, try to figure out how you can make this animation possible in your own web page.</p>
+        
+        <pre><code>
+            #spinningbox
+                background-color: #CCC
+                -webkit-transition: 1s ease-in-out
+                -moz-transition: 1s ease-in-out
+                -o-transition: 1s ease-in-out
+                transition: 1s ease-in-out
+            #spinningbox:hover
+                background-color: #BBB
+                -webkit-transform:rotate(360deg)scale(2)
+                -moz-transform: rotate(360deg) scale(2)
+                -o-transform: rotate(360deg) scale(2)
+                -ms-transform: rotate(360deg) scale(2)
+                transform: rotate(360deg) scale(2)
+        </code></pre>
+        <h2>Go ahead and start practicing!</h2>
+    
+        <style>
+            pre {
+                width: 100%;
+                
+            }
+      
+            form {
+                margin-left: 320px;
+            }
+        </style>
+      
+    </div>
+    </div>
+	<div class="container">                  
+  		<ul class="pager">
+    		<li class="previous"><a href="page2.html">Previous</a></li>
+			<li class="next"><a href="page4.html">Next</a></li>
+  		</ul>
+	</div>
+</body>
+</html>
